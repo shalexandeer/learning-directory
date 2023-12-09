@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import { useRouter } from "next/navigation";
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { useRouter } from 'next/navigation';
 
 export default function Likes({
   tweet,
@@ -19,7 +19,7 @@ export default function Likes({
     if (user) {
       if (tweet.user_has_liked_tweet) {
         await supabase
-          .from("likes")
+          .from('likes')
           .delete()
           .match({ user_id: user.id, tweet_id: tweet.id });
         addOptimisticTweet({
@@ -27,10 +27,9 @@ export default function Likes({
           likes: tweet.likes - 1,
           user_has_liked_tweet: !tweet.user_has_liked_tweet,
         });
-        
       } else {
         await supabase
-          .from("likes")
+          .from('likes')
           .insert({ user_id: user.id, tweet_id: tweet.id });
         addOptimisticTweet({
           ...tweet,
