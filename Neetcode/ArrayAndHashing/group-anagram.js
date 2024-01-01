@@ -56,3 +56,13 @@ var groupAnagrams = function(strs) {
   })
   return (Array.from(myMap.values()))
 };
+
+
+// make a function for sorting array of numbers only
+const sortNum = function(nums){
+  const newArr = nums.sort((a,b) => a - b )
+  for (let i = 0; i < newArr.length; i++) {
+     if(nums[i] === nums[i-1]) return true;
+  }
+  return false;
+}

@@ -3,7 +3,7 @@ var isAnagram = function(s,t){
 
   const charFrequency = {};
 
-  //count character frequency in string s
+  //count character frequency in string scis
   for(const char of s){
     charFrequency[char] = (charFrequency[char] || 0) + 1;
   }
@@ -15,6 +15,6 @@ var isAnagram = function(s,t){
     charFrequency[char] -= 1;
   }
   
-  return Object.values(charFrequency).every(count => count === 0)
+  return Object.values(charFrequency).every(count => count === 0);
 
 }
